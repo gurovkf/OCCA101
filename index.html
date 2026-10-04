@@ -17,7 +17,7 @@
   --bg:#eef1f4; --surface:#ffffff; --surface-2:#f7f9fb;
   --ink:#141d26; --muted:#5d6e7d; --line:#d9e1e8;
   --accent:#0d5b66; --accent-soft:#dceef0; --accent-ink:#0d5b66;
-  --warn:#8a4f12; --warn-soft:#fbeeda; --alert:#b3261e;
+  --warn:#8a4f12; --warn-soft:#fbeeda; --alert:#b3261e; --alert-soft:#fbe7e4;
   --display:"Unbounded","Golos Text",system-ui,sans-serif;
   --body:"Golos Text",system-ui,-apple-system,Segoe UI,sans-serif;
 }
@@ -25,14 +25,14 @@
   --bg:#0d1218; --surface:#161f28; --surface-2:#1c272f;
   --ink:#e6edf3; --muted:#92a3b1; --line:#27343d;
   --accent:#5ccad6; --accent-soft:#113136; --accent-ink:#9fe3eb;
-  --warn:#e2a567; --warn-soft:#2e2316; --alert:#ff8a7a;
+  --warn:#e2a567; --warn-soft:#2e2316; --alert:#ff8a7a; --alert-soft:#34201d;
   color-scheme:dark;
 }}
 :root[data-theme="dark"]{
   --bg:#0d1218; --surface:#161f28; --surface-2:#1c272f;
   --ink:#e6edf3; --muted:#92a3b1; --line:#27343d;
   --accent:#5ccad6; --accent-soft:#113136; --accent-ink:#9fe3eb;
-  --warn:#e2a567; --warn-soft:#2e2316; --alert:#ff8a7a;
+  --warn:#e2a567; --warn-soft:#2e2316; --alert:#ff8a7a; --alert-soft:#34201d;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -89,8 +89,8 @@ summary{padding:13px 16px;cursor:pointer;font-weight:600;font-size:.88rem;list-s
 summary::-webkit-details-marker{display:none}
 summary::after{content:"+";color:var(--muted);font-weight:500}
 details[open] summary::after{content:"−"}
-summary.ref{color:var(--accent-ink);font-weight:700;background:var(--accent-soft)}
-summary.ref::after{color:var(--accent-ink)}
+summary.ref{color:var(--alert);font-weight:700;background:var(--alert-soft)}
+summary.ref::after{color:var(--alert)}
 .dbody{padding:0 16px 16px;border-top:1px solid var(--line);padding-top:14px}
 .kv{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:.84rem}
 .kv:last-child{border-bottom:none}
@@ -125,18 +125,6 @@ footer{color:var(--muted);font-size:.74rem;padding:16px 0 26px;line-height:1.55}
     <p class="hint">Площади — без балконов и лоджий, как указано в бюллетене. Площадь квартиры 76,5 м² подставлена из вашего бланка; машино-место и кладовка — пример, замените своими или поставьте 0.</p>
   </div>
 
-  <div class="btns">
-    <button class="p" id="bAll" type="button">Отметить всё</button>
-    <button class="p" id="bMin" type="button">Только обязательное</button>
-    <button class="p" id="bReset" type="button">Как в бюллетене</button>
-  </div>
-
-  <div class="card">
-    <p class="eyebrow">Вопросы повестки с платой</p>
-    <div class="rows" id="rows"></div>
-  </div>
-
-  
   <details>
     <summary class="ref"><span>Справочно: тарифы на коммунальные ресурсы, которые оплачиваются сверху</span></summary>
     <div class="dbody">
@@ -155,6 +143,19 @@ footer{color:var(--muted);font-size:.74rem;padding:16px 0 26px;line-height:1.55}
       <p class="hint">Отопление в доме с поквартирным учётом начисляется по вашему индивидуальному счётчику. Отдельно распределяется тепло на общедомовые нужды — разница между общедомовым прибором и суммой квартирных, пропорционально площади помещений. Это и есть вопрос 6 повестки.</p>
     </div>
   </details>
+
+  <div class="btns">
+    <button class="p" id="bAll" type="button">Отметить всё</button>
+    <button class="p" id="bMin" type="button">Только обязательное</button>
+    <button class="p" id="bReset" type="button">Как в бюллетене</button>
+  </div>
+
+  <div class="card">
+    <p class="eyebrow">Вопросы повестки с платой</p>
+    <div class="rows" id="rows"></div>
+  </div>
+
+  
 
   <footer id="foot"></footer>
 </div>
